@@ -3,7 +3,7 @@ Diretório reservado a trabalhos de ED - 2018.1
 # RELATÓRIO DAS ATIVIDADES:
 
 
-	01_princesa
+#	01_princesa
 
 
  	Tem-se um grupo de amigos e a Princesa escolhe um dos participantes para ficar com a faca e ele mata o proximo da fila
