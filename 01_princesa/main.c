@@ -19,13 +19,15 @@ int tamanho (int *qtd){
 
 void pop_front(int vet[], int *qtd){
     int i;
-    for(i = 0; i < *qtd - 1; i++) vet[i] = vet[i + 1];
-    *qtd -= 1;
+    for(i = 0; i < *qtd - 1; i++)
+        vet[i] = vet[i + 1];
+        *qtd -= 1;
 
 }
 void push_back(int vet[], int *qtd, int value){
      vet[*qtd] = value;
-    *qtd += 1;
+     *qtd += 1;
+
 }
 
 void rodar(int vet[], int *qtd, int value){
@@ -35,10 +37,10 @@ void rodar(int vet[], int *qtd, int value){
 }
 
 
-void mostrar(int vet[], int *qtd){
+void mostrar(int vet[], int *qtd, int ant){
     int i;
-    for(i = 0; i < *qtd; i++){
-        printf("%d ",vet[i]);
+    for(i = ant; i <= *qtd; i++){
+        printf("%d \n",vet[i]);
 
     }
 }
@@ -47,15 +49,15 @@ void mostrar(int vet[], int *qtd){
 int main(){
     //VARIAVEIS
 
-    int qtd;
+    int qtd = 0;
     int primeiro = 0;
     int i = 0;
     int k = 0;
     //RECEBE OS AMIGOS E QUEM ESTÁ COM A FACA
 
     printf("Digite a quantidade de amigos: ");
-    scanf("%d", &qtd);
-
+    scanf(" %d", &qtd);
+    int ant = qtd;
 
     printf("Digite quem e o primeiro: ");
     scanf(" %d", &primeiro);
@@ -66,25 +68,26 @@ int main(){
 
     //INICIA O VETOR
 
-    for(i = 0; i < qtd; i++)push_back(vet, &qtd, i);
+    for(i = 1; i <= qtd; i++)
+        push_back(vet, &qtd, i);
 
     // RODA O VETOR ATÉ QUE O PRIMEIRO (QUEM ESTÁ COM A FACA) FIQUE NO VET[0]
+    mostrar(vet, &qtd, ant);
 
-    for( k = 0; k < qtd; k++) if(vet[k]!=primeiro) rodar(vet, &qtd, k);
+    // for( k = ant; k <= qtd; k++) if(vet[k]!=primeiro) rodar(vet, &qtd, k);
+
 
 
     // INICIA O "JOGO"
 
 
-
-    while(tamanho(&qtd) > 1){
+   /* while(tamanho(&qtd) > 1){
         rodar(vet, &qtd, tamanho(&qtd));
         pop_front(vet, &qtd);
         mostrar(vet, &qtd);
 
     }
 
-
-
+*/
     return 0;
 }
