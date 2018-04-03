@@ -1,6 +1,6 @@
 Diretório reservado a trabalhos de ED - 2018.1
 
-#RELATÓRIO DAS ATIVIDADES:
+# RELATÓRIO DAS ATIVIDADES:
 
 
 	01_princesa
@@ -19,7 +19,7 @@ O vetor será iniciado com a função push_back() e rodado até que quem estiver
 Houve dificuldades na função push_back(vet, qtd, value) pois não funcionava para iniciar o vetor, acabava adicionando lixo e não possuia ordem.
 
 
-	02_queimada
+#	02_queimada
 
 
 	Árvores são geradas aleatóriamente e uma é escolhida para se iniciar o fogo. Os numeros vão incrementando de acordo com a sequencia de árvores que são queimadas até o 0.
@@ -31,7 +31,7 @@ Houve dificuldades na função push_back(vet, qtd, value) pois não funcionava p
 
 O código feito em C++, contem um contador para saber quantas vezes a função foi chamada e isto descobrir quantas árvores foram queimadas juntamente servindo para acrescentar os numeros que mostram a recursão do 0 ao 9 de acordo com a tabela ascII.
 
-	03_vetores
+#	03_vetores
 	
 	
 	Funções que utilizamos no código só que feitas manualmente.
