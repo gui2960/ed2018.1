@@ -16,7 +16,8 @@ O código primeiramente feito em C++ e adaptado para C.
 Recebemos 2 números (quantidade de jogadores e quem irá começar com a faca), geramos um vetor que irá armazenar o numero de jogares em suas respectivas posições. 
 O vetor será iniciado com a função push_back() e rodado até que quem estiver com a faca esteja no final. Após isso será utilizado o pop_front() que é a função para excluir o vetor da frente, novamente um push_back(). Esses passos são feitos até que a quantidade do vetor seja 1 (o vencedor).
 
-Houve dificuldades na função push_back(vet, qtd, value) pois não funcionava para iniciar o vetor, acabava adicionando lixo e não possuia ordem.
+Houve dificuldades na função push_back(vet, qtd, value) pois não funcionava para iniciar o vetor, acabava adicionando lixo e não possuia ordem. Tentei encontrar alguma função do c parecida com o push_back(), olhei também no Leancpp.com e não encontrei solução para o problema.
+Não busquei a monitoria mas toda vez que ia resolver um novo exercicio passado, voltava a tentar. destinei umas 8-9h.
 
 
 #	02_queimada
@@ -30,6 +31,7 @@ Houve dificuldades na função push_back(vet, qtd, value) pois não funcionava p
 		Mostrar caminho da recursão;
 
 O código feito em C++, contem um contador para saber quantas vezes a função foi chamada e isto descobrir quantas árvores foram queimadas juntamente servindo para acrescentar os numeros que mostram a recursão do 0 ao 9 de acordo com a tabela ascII.
+Não possui dificuldades em resolver este problema uma vez que tinha entendido mais ou menos como funcionava e juntado isto ao contador, me deu a ideia para conclusão do exercicio.
 
 #	03_vetores
 	
@@ -45,7 +47,7 @@ Quando se criar um vetor tem-se dados (blocos de dados), size (tamanho do vetor)
 	v.size() --> nos indicando o tamanho do vetor
 	v.reserve --> reserva uma capacidade para o vetor
 	v.at() ---> nos retorna à referência a variável desta posição
-A maior dificuldade no método reserve() foi criar um if que suprisse as condições da capacidade. Que se a capacity antiga fosse maior que a nova e/ou a capacity fosse menor que o bloco salvo nela.
+A maior dificuldade no método reserve(), apesar do conceito dele estar fácil, para mim foi o exercicio dificil devido a linguagem nova e o ponteiro de this->_data. Busquei ajuda com amigos que entendiam mais de C++ e pesquisei em sites mas apenas davam um exemplo. 
 
 
 #	04_fractais
