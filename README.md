@@ -48,3 +48,24 @@ Quando se criar um vetor tem-se dados (blocos de dados), size (tamanho do vetor)
 A maior dificuldade no método reserve() foi criar um if que suprisse as condições da capacidade. Que se a capacity antiga fosse maior que a nova e/ou a capacity fosse menor que o bloco salvo nela.
 
 
+#	04_fractais
+
+
+	Fractais 
+
+	Atividade:
+		Embuá;
+		Embuá recursivo;
+		Árvore;
+		Alterar a Árvore conforme  gosto pessoal;
+		Implementar outros 3(três) fractais;
+
+
+É preciso de um papel e caneta nesta parte para ter noção de onde irá ser chamada a recursão e qual será seu comportamento. Ao ir desenhando o fractal é possivel ter ideia de como fazer.
+
+
+
+
+
+
+
