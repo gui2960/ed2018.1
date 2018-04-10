@@ -31,16 +31,25 @@ struct Vetor{
 
     //retornar a refencia à variavel dessa posicao
     int& at(int indice){
+        static int dummy = 0;
         return this->_data[indice];
     }
+
     int& front(){
-        return this->_data[0];
+        static int dummy = 0;
+        if(this->_size > 0)
+            return this->_data[0];
+        return dummy;
     }
+
     int& back(){
         return this->_data[this->_size - 1];
     }
     int * begin(){
-        return &this->_data[0];
+        static int dummy = 0;
+        if(_size != 0)
+            return &this->_data[0];
+        return nullptr;
     }
     int * end(){
         return &this->_data[this->_size];
@@ -55,6 +64,18 @@ struct Vetor{
     }
 
     void reserve(int capacity){
+        //       int* backup_data = this->_data;
+
+        //       this->_data = new int[capacity];
+        //       this->_capacidade = capacity;
+        //       if(this->_size > capacity)
+        //           this->_size = capacity;
+        //       for(int i = 0; i < _size; i++)
+        //           this->_data[i] = backup_data[i];
+
+        //       delete [] backup_data;
+
+
         int i = 0;
         int guardar[capacity];
         if(capacity >= this->_capacidade){
@@ -68,7 +89,7 @@ struct Vetor{
 
             for(i = 0; i < this->_capacidade; i++)
                 guardar[i] = this->_data[i];
-            this->_data = new int[capacity];
+            this->_data = new int[capacity*2];
             delete this->_data;
             this->_data = guardar;
 
