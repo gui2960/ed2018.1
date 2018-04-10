@@ -63,11 +63,19 @@ A maior dificuldade no método reserve(), apesar do conceito dele estar fácil, 
 		Implementar outros 3(três) fractais;
 
 
-É preciso de um papel e caneta nesta parte para ter noção de onde irá ser chamada a recursão e qual será seu comportamento. Ao ir desenhando o fractal é possivel ter ideia de como fazer.
+Utilizei de papel e caneta para ir desenhando conforme ia implementando o código para ter noção de como iria se comportar mas é muito complicado pois quando acha que vai dá certo sai algo diferente.
 
 
 
+#	05_labirintos
 
 
+	Labirintos
+	
+	Atividades:
+		Gerando o Labirinto (recursivo);
+		Achando o caminho entre dois pontos no labirinto (recursivo);
+		Achando o caminho entre dois pontos no labirinto (pilha);
+		Gerando o Labirinto (pilha);
 
 
