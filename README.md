@@ -63,8 +63,8 @@ A maior dificuldade no método reserve(), apesar do conceito dele estar fácil, 
 		Implementar outros 3(três) fractais;
 
 
-Utilizei de papel e caneta para ir desenhando conforme ia implementando o código para ter noção de como iria se comportar mas é muito complicado pois quando acha que vai dá certo sai algo diferente.
-
+Utilizei de papel e caneta para ir desenhando conforme ia implementando o código para ter noção de como iria se comportar mas é muito complicado pois quando acha que vai dá certo sai algo diferente, é necessessário muita paciência e muito tempo para sair "certo".
+A maior dificuldade nessa tarefa foi achar videos explicativos uma vez que só tinham fractais mais parecidos com imagens. Os materiais para estudo foram os videos da disciplina e estudando com colegas. Cada fractal requer tempo apesar das pequenas linhas de código. 
 
 
 #	05_labirintos
