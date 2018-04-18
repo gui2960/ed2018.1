@@ -109,12 +109,14 @@ struct SList{
     Node * remove(Node* node, int value){
         if(node == nullptr)
             return node;
+        if(node->value == value && node->next == nullptr)
+            pop_back();
 
         while(node->next->value == value){
-            auto* aux = node->next;
+            auto* aux = node->next->next;
+            node->next = nullptr;
             delete node->next;
-            aux = nullptr;
-            head = head->next;
+            head = aux;
 
         }
 
