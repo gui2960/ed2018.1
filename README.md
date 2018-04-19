@@ -78,8 +78,8 @@ A maior dificuldade nessa tarefa foi achar videos explicativos uma vez que só t
 		Achando o caminho entre dois pontos no labirinto (pilha);
 		Gerando o Labirinto (pilha);
 
-
-
+Alterar o método furar(matchar &mat, Par par) para interativo foi bem difícil de se fazer sozinho, passei horas tentando e olhando para o outro 
+código feito em sala (path) mas não consegui desenvolver...até entendi como ele iria empilhar o primeiro porém o while() só consegui com ajuda dos colegas me explicando como era feito e indo desenvolvendo.
 
 #	06_Fila (list)
 
