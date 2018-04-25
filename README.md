@@ -87,14 +87,12 @@ código feito em sala (path) mas não consegui desenvolver...até entendi como e
 
 	Atividades:
 		Fazer os metódos utilizados em listas;
-		Fazer o método remove(int value) interativo;
 
 Fui me baseando pelo métodos push_back(), pop_back() e _remove(int value) (este apesar de ser recursivo). Eles continham pedaços que davam para aproveitar. No caso, a maior dificuldade seria ligar o elemento anterior ao proximo da lista depois que excluisse o value.
 Ex:
 Removendo o 2.
 1 - 2 - 3
 Tendo que ligar o 1 ao 3.
-
 1 - 3
-
+	
 
