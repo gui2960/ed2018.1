@@ -22,6 +22,18 @@ struct SList{
         this->head = nullptr;
     }
 
+   // ~Slist(){}
+
+    void deletarTudo(Node * node){
+        if(node->next == nullptr)
+            return;
+        delete node;
+        deletarTudo(node->next);
+    }
+
+    //Procura o valor, remove desse nó em diante
+    Node * cortarRabo (Node * node, int value);
+
     void push_front(int value){
         //this->head = new Node(value, this->head);
         Node * node = new Node(value);
@@ -42,11 +54,17 @@ struct SList{
             head = new Node(value);
             return;
         }
-        auto node = new Node();
+        auto node = head;
         while(node->next != nullptr)
             node = node->next;
         node->next = new Node(value);
     }
+
+    void _rpush_back(Node* node, int value);
+
+    int size(); //fazer
+
+
     void pop_back(){
         if(head == nullptr)
             return;
@@ -62,7 +80,7 @@ struct SList{
         node->next = nullptr;
     }
 
-    void show(){
+    void ishow(){
         auto node = head;
         while(node != nullptr){
             cout << node->value << " ";
@@ -74,13 +92,15 @@ struct SList{
     void _rshow(Node * node){
         if(node == nullptr)
             return;
-        _rshow(node->next);
         cout << node->value << " ";
+        _rshow(node->next);
+
     }
 
     void rshow(){
-        _rshow(head);
         cout << endl;
+        _rshow(head);
+
     }
 
     Node * _rpop_back(Node * node){
@@ -89,6 +109,10 @@ struct SList{
             return nullptr;
         }
         node->next = _rpop_back(node->next);
+    }
+
+    void rpop_back(){
+        this->head = _rpop_back(head);
     }
 
     Node * _remove(Node * node, int value){
@@ -106,12 +130,19 @@ struct SList{
         head = _remove(head, value);
     }
 
-    Node * remove(Node* node, int value){
+    void rremove(int value){
+        head = _remove(head, value);
+    }
+
+
+    Node * iremove(int value){
+        auto node = head;
+
         if(node == nullptr)
             return node;
         if(node->value == value && node->next == nullptr)
             pop_back();
-
+            return node;
         while(node->next->value == value){
             auto* aux = node->next->next;
             node->next = nullptr;
@@ -119,9 +150,47 @@ struct SList{
             head = aux;
 
         }
+        return node;
+    }
+
+    void inserir_ordenado(int value){
+        auto node = head;
+        if(head->value > value || head == nullptr){
+            this->head = new Node(value, head);
+            return;
+        }
+
+        while(node->next != nullptr && node->next->value > value){
+            node = node->next;
+
+        }
+        node->next = new Node(value, node->next);
 
 
     }
+
+    Node *_rinserir_ordenado(Node * node, int value); //fazer
+
+    void rinserir_ordenado(int value); //fazer
+
+    int rsomar(Node *node){
+       int soma;
+       if(node->next == nullptr)
+           return node->value;
+       return soma += rsomar(node->next);
+
+    }
+
+    int rmin(Node * node){
+        if(node->next == nullptr)
+            return node->value;
+       return std::min(node->value , rmin(node->next));
+
+    }
+
+    string serialize(Node * node); //fazer
+
+
 };
 
 
