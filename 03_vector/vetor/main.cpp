@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-
+#include <strstream>
 using namespace std;
 
 struct Vetor{
@@ -14,6 +14,47 @@ struct Vetor{
         //        this->data = (int*) malloc(capacidade * 4);//retorno lixo
         this->_data = new int[capacidade];//retorno zerado
     }
+
+
+    Vetor(string serial){
+       stringstream ss(serial);
+       int value;
+
+
+
+       /* interativo
+
+        while(ss >> value){
+           this->push_back(value);
+       }
+
+      */
+    }
+
+
+    void _extract(stringstream &ss){
+
+    }
+
+
+
+    void _serialize(stringstream &ss, int ind){
+        if(ind == _size)
+            return;
+        ss << _data[ind];
+        _serialize(ss, ind + 1);
+    }
+
+    string serialize(){
+        stringstream ss;
+        serialize(ss, 0);
+        return ss, str();
+    }
+
+
+
+
+
     void push_back(int value){
         if(this->_size == this->_capacidade)
             return;
@@ -64,18 +105,6 @@ struct Vetor{
     }
 
     void reserve(int capacity){
-        //       int* backup_data = this->_data;
-
-        //       this->_data = new int[capacity];
-        //       this->_capacidade = capacity;
-        //       if(this->_size > capacity)
-        //           this->_size = capacity;
-        //       for(int i = 0; i < _size; i++)
-        //           this->_data[i] = backup_data[i];
-
-        //       delete [] backup_data;
-
-
         int i = 0;
         int guardar[capacity];
         if(capacity >= this->_capacidade){
