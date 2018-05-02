@@ -22,17 +22,76 @@ struct SList{
         this->head = nullptr;
     }
 
-   // ~Slist(){}
+//    ~Slist(){
+//        head =deletarTudo(head);
+//    }
 
-    void deletarTudo(Node * node){
+//    Slist(string serialize){
+//        stringstream ss(serialize);
+//        int value;
+//         while(ss >> value){
+//            this->push_back(value);
+//        }
+
+//    }
+
+//    string serialize(Node * node){
+//       if(node->value == nullptr)
+//            return;
+//        ss << node->value;
+//        return _serialize(ss, node->next);
+//    }
+
+    void clear(){
+        head = deletarTudo(head);
+    }
+
+    Node * deletarTudo(Node * node){
         if(node->next == nullptr)
-            return;
-        delete node;
+            return nullptr;
         deletarTudo(node->next);
+        delete node;
+        return nullptr;
+
     }
 
     //Procura o valor, remove desse nó em diante
-    Node * cortarRabo (Node * node, int value);
+    Node * arrancaRabo (Node * node, int value){
+            if(node->next == nullptr)
+                return nullptr;
+            if(node->next != nullptr){
+                if(node->value != value){
+                    delete node;
+                    return nullptr;
+                }
+                else{
+                    return node;
+                }
+            }
+            node->next = arrancaRabo(node->next, value);
+            return node;
+     }
+    //Procura o valor, remove desse nó para trás
+        Node * arrancaVenta (Node * node, int value){
+        if(node->next == nullptr)
+            return nullptr;
+        node->next = arrancaVenta(node->next, value);
+        if(node->next != nullptr){
+            if(node->value != value){
+                delete node;
+                return nullptr;
+            }
+            else{
+                return node;
+            }
+        }
+        return node;
+    }
+
+
+
+
+
 
     void push_front(int value){
         //this->head = new Node(value, this->head);
@@ -62,7 +121,13 @@ struct SList{
 
     void _rpush_back(Node* node, int value);
 
-    int size(); //fazer
+    int size(Node * node){
+            int cont = 0;
+        while(node->next != nullptr){
+            cont++;
+        }
+        return cont;
+    }
 
 
     void pop_back(){
@@ -135,23 +200,20 @@ struct SList{
     }
 
 
-    Node * iremove(int value){
-        auto node = head;
-
-        if(node == nullptr)
-            return node;
-        if(node->value == value && node->next == nullptr)
-            pop_back();
-            return node;
-        while(node->next->value == value){
-            auto* aux = node->next->next;
-            node->next = nullptr;
+   void iremove(int value){
+       if(head == nullptr)
+           return;
+       if(head -> value == value){
+           delete head;
+           head = nullptr;
+           return;
+       auto node = head;
+            while(node->next->value != value)
+                node = node->next;
             delete node->next;
-            head = aux;
-
-        }
-        return node;
+            node->next = node;
     }
+   }
 
     void inserir_ordenado(int value){
         auto node = head;
@@ -169,10 +231,12 @@ struct SList{
 
     }
 
-    Node *_rinserir_ordenado(Node * node, int value); //fazer
+    Node *_rinserir_ordenado(Node * node, int value);
 
-    void rinserir_ordenado(int value); //fazer
+    void rinserir_ordenado(int value){
+        _rinserir_ordenado(head, value);
 
+    }
     int rsomar(Node *node){
        int soma;
        if(node->next == nullptr)
@@ -188,8 +252,6 @@ struct SList{
 
     }
 
-    string serialize(Node * node); //fazer
-
 
 };
 
@@ -197,5 +259,13 @@ struct SList{
 int main()
 {
     cout << "Hello World!" << endl;
+    SList x;
+
+    x.push_back(5);
+    x.push_back(3);
+    x.push_back(4);
+    x.push_back(2);
+    x.iremove(2);
+    x.rshow();
     return 0;
 }
