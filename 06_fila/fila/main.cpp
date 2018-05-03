@@ -119,7 +119,17 @@ struct SList{
         node->next = new Node(value);
     }
 
-    void _rpush_back(Node* node, int value);
+    void _rpush_back(Node* node, int value){
+
+        if(head == nullptr)
+            head = new Node(value);
+            return;
+
+
+        _rpush_back(node->next, value);
+        node = node->next;
+        node->next = new Node(value);
+     }
 
     int size(Node * node){
             int cont = 0;
@@ -231,12 +241,23 @@ struct SList{
 
     }
 
-    Node *_rinserir_ordenado(Node * node, int value);
+    Node * _rinserir_ordenado(Node * node, int value){
+         if(node==nullptr){
+              return new Node(value);
+         }
+         if(node->value> value){
+             return new Node(value,node);
+         }
+         node->next= _rinserir_ordenado(node->next,value);
+         return node;
+    }
 
     void rinserir_ordenado(int value){
-        _rinserir_ordenado(head, value);
+         this->head=_rinserir_ordenado(head,value);
 
     }
+
+
     int rsomar(Node *node){
        int soma;
        if(node->next == nullptr)
