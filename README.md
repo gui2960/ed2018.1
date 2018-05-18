@@ -94,5 +94,39 @@ Removendo o 2.
 1 - 2 - 3
 Tendo que ligar o 1 ao 3.
 1 - 3
+
+#	07_editor
+
+	fila
+
+	Atividades:
+		Implementar funções de um editor de texto;
+
+Não foi um exercicio dificil de fazer e foi bem divertido implementar funções que encontramos em um editor. A pior parte foi  o Ctrl + z e o Ctrl + r, onde não era necessário fazer um pop_front e sim voltar um item sem apagar.
+Além do pedido deu para implementar funções extras por titulo de curiosidade
+
+#	08_fila_banco
+
+	fila
+
+	Atividades:
+		Implementar uma fila de banco onde os clientes possuim papeis para serem processados, tinham paciência (ao final de sua paciencia ele poderia se retirar da fila), horário para encerrar o expediente;
+		Calcular quantos caixas eram necessários para suprir as obrigações e ainda gerar lucro para o banco;
+
+#	09_ordenacao
+
+	ordenacao
+
+	Atividades:
+		Implementar algoritmos de ordenação;
+		Insertion sort;
+		Selection sort;
+		Bubble sort;
+		Quick sort;
+		Merge sort;
+		
+
+
+	
 	
 
