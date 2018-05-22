@@ -3,7 +3,7 @@
 #include <sstream>
 #include <SFML/Graphics.hpp>
 #include "sftext.h"
-
+#import <
 using namespace std;
 
 struct Ambiente{
@@ -56,6 +56,7 @@ int main()
                     cout << tecla << endl;
 
                     amb.texto.insert(amb.cursor, tecla);
+                    atual.push_back(amb.texto.insert(amb.cursor, tecla));
 
 
                 }
