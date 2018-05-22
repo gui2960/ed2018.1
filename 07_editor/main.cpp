@@ -3,13 +3,11 @@
 #include <sstream>
 #include <SFML/Graphics.hpp>
 #include "sftext.h"
-#import <
 using namespace std;
 
 struct Ambiente{
     list<char> texto;
     list<char>::iterator cursor;
-    list<Ambiente> atual;// -- para voltar e ++ para ir pra frente
     Ambiente(){
         cursor = texto.end();
     }
@@ -29,7 +27,12 @@ struct Ambiente{
 
 int main()
 {
+    list<Ambiente> la;// -- para voltar e ++ para ir pra frente
     Ambiente amb;
+    la.push_back(amb);
+
+    list<Ambiente>::iterator atual;
+    atual = la.begin();
 
     sf::RenderWindow janela(sf::VideoMode(800, 600), "Janela");
 
@@ -43,64 +46,72 @@ int main()
                 if(event.key.code == sf::Keyboard::Z){
                     if(event.key.control)
                         cout << "control z" << endl;
-                    amb.atual.back();
+                    if(atual!=la.begin())
+                        atual--;
+
                 }
                 else if(event.key.code == sf::Keyboard::R){
                     if(event.key.control)
                         cout << "control r" << endl;
+                    if(atual!=la.end())
+                        atual++;
                 }
                 else if((event.key.code >= sf::Keyboard::A) &&
                    (event.key.code <= sf::Keyboard::Z)){
                    char tecla = (event.key.code - sf::Keyboard::A) + 'a';
-
-                    cout << tecla << endl;
-
-                    amb.texto.insert(amb.cursor, tecla);
-                    atual.push_back(amb.texto.insert(amb.cursor, tecla));
-
+                    if(event.key.shift)
+                    tecla+= 'a' + 'A';
+                    la.erase(++atual,)
+                    la.push_back(*atual);
+                    atual == --la.end();
+                    atual->texto.insert(atual->cursor, tecla);
 
                 }
                 else if((event.key.code == sf::Keyboard::Space)){
-                    amb.texto.insert(amb.cursor, ' ');
+                    atual->texto.insert(atual->cursor, ' ');
                     cout << "espaco" << endl;
 
                 }
                 else if(event.key.code == sf::Keyboard::BackSpace){
                     cout << "backspace" << endl;
-                    amb.texto.erase(amb.cursor--);
+                    if(atual->cursor != atual->texto.begin())
+                        atual->cursor = atual->texto.erase(--atual->cursor);
 
 
                 }
                 else if(event.key.code == sf::Keyboard::Delete){
-                    amb.texto.erase(amb.cursor++);
+                    if(atual->cursor != atual->texto.end())
+                    atual->cursor = atual->texto.erase(atual->cursor++);
                     cout << "delete" << endl;
 
                 }
                 else if(event.key.code == sf::Keyboard::Left){
-                        amb.cursor--;
+                    if(atual->cursor!= atual->texto.begin())
+                        atual->cursor--;
 
                 }
                 else if(event.key.code == sf::Keyboard::Right){
-                        amb.cursor++;
+                    if(atual->cursor!= atual->texto.end())
+                        atual->cursor++;
                 }
                 else if(event.key.code == sf::Keyboard::Comma){
-                        amb.texto.push_back(',');
+                        atual->texto.push_back(',');
                 }
                 else if(event.key.code == sf::Keyboard::Dash){
-                        amb.texto.push_back('-');
+                        atual->texto.push_back('-');
                 }
                 else if(event.key.code == sf::Keyboard::Slash){
-                        amb.texto.push_back('/');
+                        atual->texto.push_back('/');
                 }
                 else if(event.key.code == sf::Keyboard::LBracket){
-                        amb.texto.push_back('{');
+                        atual->texto.push_back('{');
                 }
                 else if(event.key.code == sf::Keyboard::RBracket){
-                        amb.texto.push_back('}');
+                        atual->texto.push_back('}');
                 }
                 else if(((event.key.code >= sf::Keyboard::Num0) && (event.key.code >= sf::Keyboard::Num9)) || ((event.key.code >= sf::Keyboard::Numpad0) && (event.key.code >= sf::Keyboard::Numpad9))){
                         char numero = (event.key.code - sf::Keyboard::Numpad0) + '0';
-                        amb.texto.push_back(numero);
+                        atual->texto.push_back(numero);
                 }
 
             }
@@ -108,7 +119,7 @@ int main()
 
         auto pos = sf::Vector2f(30, 50);
        janela.clear();
-        janela.draw(sfText(pos, amb.toString(), sf::Color::White, 30));
+        janela.draw(sfText(pos, atual->toString(), sf::Color::White, 30));
         janela.display();
     }
     return 0;
