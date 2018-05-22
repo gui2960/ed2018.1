@@ -104,6 +104,11 @@ Tendo que ligar o 1 ao 3.
 
 Não foi um exercicio dificil de fazer e foi bem divertido implementar funções que encontramos em um editor. A pior parte foi  o Ctrl + z e o Ctrl + r, onde não era necessário fazer um pop_front e sim voltar um item sem apagar.
 Além do pedido deu para implementar funções extras por titulo de curiosidade
+Pós-correção:
+
+Não havia implantado o Crtl + z  e o Ctrl + r. 
+Com a explicação fui tentando consertar até onde havia feito e tentei de novo implementar.
+Estava tentando dar push_back no amb quando na verdade era pra usar atual. Nesse processo também não estava dando push_back no amb que foi o primeiro passo depois que criou uma lista al.
 
 #	08_fila_banco
 
