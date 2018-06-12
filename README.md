@@ -131,7 +131,25 @@ Estava tentando dar push_back no amb quando na verdade era pra usar atual. Nesse
 		Merge sort;
 		
 
+#	10_Hash
+	
+	Hash	
+
+	Atividades:
+		Implementar funções utilizadas em hash;
+		Implementar um hash genérico;
+
+Hash foi um exercício muito mais facil de entender do que fila. Ainda é preciso ter bastante atenção pricipalmente ao calcular a base e dela andar para inserir um elemento caso a posição já esteja ocupada e mais cuidado ainda ao remover.
+Passei bastante tempo revendo as videos aulas que estavam no youtube e os códigos mas não gastei muito tempo implementando.
+
+#	11_Arvore_binaria	
+	
+	Arvores Binárias
+
+	Atividades:
+		Implementar funções que temos em árvore;
 
 	
-	
+Comparada ao hash e a lista está sendo uma das mais interessantes até o momento. Além de que mais facil que lista apesar de que temos N "filhos" para cada "nó".
+Até o momento apenas assisti as aulas.
 
